@@ -1,8 +1,6 @@
 <?php namespace App;
 
-use Validator;
 use App\Services\ResponseService;
-use App;
 
 abstract class Repository
 {
@@ -21,12 +19,11 @@ abstract class Repository
     {
         $this->model = $model;
         $this->responseService = new ResponseService();
-        $this->validator = new Validator();
     }
 
     public function validator(array $data)
     {
-        return App::make('validator')->make($data, $this->rules);
+        return app('validator')->make($data, $this->rules);
     }
 
     public function create($data)
