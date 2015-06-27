@@ -1,7 +1,5 @@
 <?php namespace App\Resources\User\Models;
 
-use App;
-use Hash;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -41,6 +39,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function setPasswordAttribute($password)
     {
-        $this->attributes['password'] = App::make('hash')->make($password);
+        $this->attributes['password'] = bcrypt($password);
     }
 }
