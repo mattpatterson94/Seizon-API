@@ -27,3 +27,8 @@ script:
 - 'vendor/bin/phpcs app --standard=psr2'
 notifications:
   slack: seizon:KydFG57VGayHcg2QT5SBIJO8
+  webhooks:
+    urls:
+      secure: GtnfqUW1/e0XgG1FV8rtb5951X+lBDbtZ7CJ5HnJgUUY3yrht7gsHOJiOk39uh7rJcHW/UrkFsOF2Sd6qXUJhLlGfGlhjsMULbmN0ydwCzJkhSYOdKuuvYAyd5VrK98tqu1oRvrcWv9pcYPzi1v7lfmiNFqJojhj2lVgTG/ykAw=
+    on_success: always
+    on_failure: never
