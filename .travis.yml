@@ -21,6 +21,7 @@ before_script:
 - chmod -R 777 storage
 - composer self-update
 - composer install --prefer-source --no-interaction --dev
+- mv .env.example .env
 script:
 - phpunit
 - 'vendor/bin/phpmd app text phpmd.xml'
