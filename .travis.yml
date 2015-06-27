@@ -23,5 +23,7 @@ before_script:
 - composer install --prefer-source --no-interaction --dev
 script:
 - phpunit
+- 'vendor/bin/phpmd app,tests text phpmd.xml'
+- 'vendor/bin/phpcs app tests --standard=psr2'
 notifications:
   slack: seizon:KydFG57VGayHcg2QT5SBIJO8
