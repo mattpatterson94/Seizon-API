@@ -11,6 +11,12 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->welcome();
-});
+//$app->get('/', function () use ($app) {
+//    return $app->welcome();
+//});
+
+$app->get('/user', 'App\Resources\User\Controllers\UserController@index');
+$app->get('/user/{id}', 'App\Resources\User\Controllers\UserController@get');
+$app->post('/user', 'App\Resources\User\Controllers\UserController@store');
+$app->put('/user/{id}', 'App\Resources\User\Controllers\UserController@update');
+$app->delete('/user/{id}', 'App\Resources\User\Controllers\UserController@destroy');

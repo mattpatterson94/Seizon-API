@@ -1,5 +1,6 @@
 <?php namespace App\Resources\User\Models;
 
+use App;
 use Hash;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Auth\Authenticatable;
@@ -24,7 +25,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['title', 'first_name', 'middle_name', 'last_name', 'email', 'password', 'user_role'];
+    protected $fillable = ['email', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -38,13 +39,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @param $password
      */
-    public function setPasswordAttribute(Hash $hash, $password)
+    public function setPasswordAttribute($password)
     {
-        $this->attributes['password'] = $hash->make($password);
-    }
-
-    public function chef()
-    {
-        return $this->hasOne('App\Resources\Chef\Models\Chef');
+        $this->attributes['password'] = App::make('hash')->make($password);
     }
 }

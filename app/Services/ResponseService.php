@@ -23,17 +23,17 @@ class ResponseService extends ApiService
 
     public function badRequest($error)
     {
-        return $this->response($error, Response::HTTP_BAD_REQUEST);
+        return $this->response(['data' => $error], Response::HTTP_BAD_REQUEST);
     }
 
     public function notFound($message = 'Not Found')
     {
-        return $this->response(['error' => $message], Response::HTTP_NOT_FOUND);
+        return $this->response(['data' => $message], Response::HTTP_NOT_FOUND);
     }
 
     public function ok($message = 'OK')
     {
-        return $this->response($message, Response::HTTP_OK);
+        return $this->response(['data' => $message], Response::HTTP_OK);
     }
 
     public function data($data)
