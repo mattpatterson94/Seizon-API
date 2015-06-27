@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "90b9e1fa977f97f2f32f7d3bdf1f66ca",
+    "hash": "f569cc17aa27e1f8551bfbc59520ce4f",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -2251,6 +2251,52 @@
     ],
     "packages-dev": [
         {
+            "name": "cdwv/php-static-analysis-hook",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cdwv/php-static-analysis-hook.git",
+                "reference": "7fd4f69e838709ae7ca89f550f888aa66d36ffc7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cdwv/php-static-analysis-hook/zipball/7fd4f69e838709ae7ca89f550f888aa66d36ffc7",
+                "reference": "7fd4f69e838709ae7ca89f550f888aa66d36ffc7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "phpmd/phpmd": "*",
+                "squizlabs/php_codesniffer": "2.0.*@dev"
+            },
+            "bin": [
+                "bin/symlink-git-hooks-to-hub",
+                "bin/git-hook-hub",
+                "bin/pre-commit"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lukasz Wozinski, CodeWave",
+                    "email": "lukasz+Z2l0aHViCg==@wozinski.pl",
+                    "homepage": "http://codewave.eu",
+                    "role": "Development Manager"
+                }
+            ],
+            "description": "A script that enables ",
+            "homepage": "http://github.com/cdwv/php-static-analysis-hook/",
+            "keywords": [
+                "git",
+                "pre-commit-hook",
+                "static-analysis"
+            ],
+            "time": "2015-03-11 09:52:59"
+        },
+        {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
             "source": {
@@ -3360,21 +3406,20 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.3.3",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "c1a26c729508f73560c1a4f767f60b8ab6b4a666"
+                "reference": "5b63fd3fe960e2020770c845e04254e5ca2b722a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/c1a26c729508f73560c1a4f767f60b8ab6b4a666",
-                "reference": "c1a26c729508f73560c1a4f767f60b8ab6b4a666",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/5b63fd3fe960e2020770c845e04254e5ca2b722a",
+                "reference": "5b63fd3fe960e2020770c845e04254e5ca2b722a",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "ext-xmlwriter": "*",
                 "php": ">=5.1.2"
             },
             "bin": [
@@ -3384,7 +3429,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-phpcs-fixer": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -3424,13 +3469,13 @@
                     "role": "lead"
                 }
             ],
-            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "description": "PHP_CodeSniffer tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
             "homepage": "http://www.squizlabs.com/php-codesniffer",
             "keywords": [
                 "phpcs",
                 "standards"
             ],
-            "time": "2015-06-24 03:16:23"
+            "time": "2014-12-05 00:14:12"
         },
         {
             "name": "symfony/config",
@@ -3693,7 +3738,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "phpmd/phpmd": 0
+        "phpmd/phpmd": 0,
+        "cdwv/php-static-analysis-hook": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
