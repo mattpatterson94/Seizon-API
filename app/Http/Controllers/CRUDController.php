@@ -3,11 +3,11 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request as Request;
 
-abstract class CRUDController extends Controller {
-
+abstract class CRUDController extends Controller
+{
     protected $service;
 
-    function __construct($service)
+    public function __construct($service)
     {
         $this->service = $service;
     }
@@ -39,7 +39,7 @@ abstract class CRUDController extends Controller {
      */
     public function store(Request $request)
     {
-        return $this->service->create( (array) $request->get('data'));
+        return $this->service->create((array) $request->get('data'));
     }
 
     /**
@@ -63,5 +63,4 @@ abstract class CRUDController extends Controller {
     {
         return $this->service->destroy($id);
     }
-
 }

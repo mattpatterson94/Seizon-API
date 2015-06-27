@@ -3,6 +3,6 @@
 use Validator;
 use App\Services\ResponseService;
 
-abstract class Repository {
-
+abstract class Respository
+{
 }

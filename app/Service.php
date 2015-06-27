@@ -2,7 +2,8 @@
 
 use Validator;
 
-abstract class Service {
+abstract class Service
+{
     // Name of Resource
     protected $name;
     // Validation rules
@@ -14,11 +15,14 @@ abstract class Service {
     // Response service
     protected $responseService;
 
-    function __construct($model, $transformer)
+    protected $validator;
+
+    public function __construct($model, $transformer)
     {
         $this->model = $model;
         $this->transformer = $transformer;
         $this->responseService = new ResponseService();
+        $this->validator = new Validator();
     }
 
     public function returnJson($result)
@@ -29,25 +33,21 @@ abstract class Service {
 
     public function validator(array $data)
     {
-        return Validator::make($data, $this->rules);
+        return $this->validator->make($data, $this->rules);
     }
 
     public function create(array $data)
     {
         $validation = $this->validator($data);
-        if($validation->fails())
-        {
+        if ($validation->fails()) {
             return $this->responseService->validationError($validation->errors()->all());
         }
-        else
-        {
-            try {
-                $obj = $this->model->create($data);
-            } catch (Exception $e) {
-                return $this->responseService->badRequest($e->getMessage());
-            }
-            return $this->responseService->ok($this->name . ' created successfully', $obj);
+        try {
+            $obj = $this->model->create($data);
+        } catch (Exception $e) {
+            return $this->responseService->badRequest($e->getMessage());
         }
+        return $this->responseService->ok($this->name . ' created successfully', $obj);
     }
 
     public function all()
@@ -61,9 +61,7 @@ abstract class Service {
         try {
             $obj = $this->model->findOrFail($id);
             return $this->responseService->data($this->transformer->transform($obj->toArray()));
-        }
-        catch(\Exception $e)
-        {
+        } catch (\Exception $e) {
             return $this->responseService->notFound($this->name . ' with this ID does not exist');
         }
     }
@@ -73,20 +71,16 @@ abstract class Service {
         $obj = $this->model->find($id);
 
         $validation = $this->validator($data);
-        if($validation->fails())
-        {
+        if ($validation->fails()) {
             return $this->responseService->validationError($validation->errors()->all());
         }
-        else
-        {
-            try {
-                $obj->update($data);
-            } catch (Exception $e) {
-                return $this->responseService->badRequest($e->getMessage());
-            }
-        
-            return $this->responseService->ok($this->name . ' updated successfully');
+        try {
+            $obj->update($data);
+        } catch (Exception $e) {
+            return $this->responseService->badRequest($e->getMessage());
         }
+
+        return $this->responseService->ok($this->name . ' updated successfully');
     }
 
     public function destroy($id)
@@ -97,7 +91,7 @@ abstract class Service {
             $obj->delete();
         } catch (Exception $e) {
             return $this->responseService->badRequest($e->getMessage());
-        }   
+        }
 
         return $this->responseService->ok($this->name . ' deleted successfully');
     }
@@ -106,17 +100,14 @@ abstract class Service {
     {
         $obj = $this->model;
         
-        foreach($query as $key => $attribute)
-        {
+        foreach ($query as $key => $attribute) {
             $pairs = explode(',', $attribute);
 
-            $obj = $obj->where(function($innerQuery) use($pairs, $key)
-                {
-                    foreach($pairs as $string)
-                    {
-                        $innerQuery->orWhere($key, 'LIKE', '%'.$string.'%');
-                    }
-                });
+            $obj = $obj->where(function ($innerQuery) use ($pairs, $key) {
+                foreach ($pairs as $string) {
+                    $innerQuery->orWhere($key, 'LIKE', '%'.$string.'%');
+                }
+            });
         }
         
         $obj = $obj->get();

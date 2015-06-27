@@ -2,6 +2,6 @@
 
 use App\Services\ApiService;
 
-class ValidationService extends ApiService {
-
+class ValidationService extends ApiService
+{
 }

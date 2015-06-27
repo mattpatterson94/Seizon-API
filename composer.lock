@@ -3427,12 +3427,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seizonio/laravel-php-code-analysis-hook.git",
-                "reference": "df3c523d806813c6efc63c00de12e2f2d8bafbca"
+                "reference": "e2322f0c51d7e11233ac3a18f911ccb654fd1d8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seizonio/laravel-php-code-analysis-hook/zipball/df3c523d806813c6efc63c00de12e2f2d8bafbca",
-                "reference": "df3c523d806813c6efc63c00de12e2f2d8bafbca",
+                "url": "https://api.github.com/repos/Seizonio/laravel-php-code-analysis-hook/zipball/e2322f0c51d7e11233ac3a18f911ccb654fd1d8b",
+                "reference": "e2322f0c51d7e11233ac3a18f911ccb654fd1d8b",
                 "shasum": ""
             },
             "require": {
@@ -3466,7 +3466,7 @@
                 "pre-commit-hook",
                 "static-analysis"
             ],
-            "time": "2015-06-27 11:07:33"
+            "time": "2015-06-27 12:01:44"
         },
         {
             "name": "squizlabs/php_codesniffer",

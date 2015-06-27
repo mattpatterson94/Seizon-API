@@ -5,35 +5,15 @@ use Symfony\Component\HttpFoundation\Response as Response;
 use Illuminate\Http\Request as Request;
 use App;
 
-class ResponseService extends ApiService {
-
+class ResponseService extends ApiService
+{
     protected $request;
 
     protected $json;
 
-    function __construct($json = true)
+    public function response($data, $httpCode)
     {
-        $this->json = $json;
-    }
-
-    public function returnJson($result)
-    {
-        $this->json = $result;
-    }
-
-    public function response($jsonData, $httpCode, $data = false)
-    {
-        if(!$data)
-            $data = $jsonData;
-
-        if($this->json)
-        {
-            return response()->json($jsonData, $httpCode);
-        }
-        else
-        {
-            return $data;
-        }
+        return response()->json($data, $httpCode);
     }
 
     public function validationError($errors)
@@ -41,9 +21,9 @@ class ResponseService extends ApiService {
         return $this->response(['error' => $errors], Response::HTTP_CONFLICT);
     }
 
-    public function badRequest($jsonError, $error = false)
+    public function badRequest($error)
     {
-        return $this->response($jsonError, Response::HTTP_BAD_REQUEST, $error);
+        return $this->response($error, Response::HTTP_BAD_REQUEST);
     }
 
     public function notFound($message = 'Not Found')
@@ -51,14 +31,13 @@ class ResponseService extends ApiService {
         return $this->response(['error' => $message], Response::HTTP_NOT_FOUND);
     }
 
-    public function ok($jsonMessage = 'OK', $message = false)
+    public function ok($message = 'OK')
     {
-        return $this->response($jsonMessage, Response::HTTP_OK, $message);
+        return $this->response($message, Response::HTTP_OK);
     }
 
     public function data($data)
     {
         return $this->response(['data' => $data], Response::HTTP_OK);
     }
-
 }

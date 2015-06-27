@@ -3,11 +3,10 @@
 use App\Http\Controllers\CRUDController;
 use App\Resources\User\Services\UserService;
 
-class UserController extends CRUDController {
-	
-	function __construct()
+class UserController extends CRUDController
+{
+    public function __construct()
     {
         parent::__construct(new UserService());
-	}
-
+    }
 }

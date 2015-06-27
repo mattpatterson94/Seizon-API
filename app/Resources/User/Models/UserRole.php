@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserRole extends Model {
-
+class UserRole extends Model
+{
     /**
      * The database table used by the model.
      *
@@ -19,5 +19,4 @@ class UserRole extends Model {
     protected $fillable = ['role'];
 
     public $timestamps = false;
-
 }

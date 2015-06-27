@@ -8,8 +8,8 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
-
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+{
     use Authenticatable, CanResetPassword;
     use SoftDeletes;
     /**
@@ -38,14 +38,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @param $password
      */
-    public function setPasswordAttribute($password)
+    public function setPasswordAttribute(Hash $hash, $password)
     {
-        $this->attributes['password'] = Hash::make($password);
+        $this->attributes['password'] = $hash->make($password);
     }
 
     public function chef()
     {
         return $this->hasOne('App\Resources\Chef\Models\Chef');
     }
-
 }
