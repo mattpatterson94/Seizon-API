@@ -1,0 +1,27 @@
+language: php
+php:
+- 5.6
+- 5.5
+- hhvm
+- 7.0
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: hhvm
+    - php: 7.0
+env:
+  global:
+  - APP_ENV=true
+  - APP_DEBUG=true
+  - MAIL_HOST=mailtrap.io MAIL_PORT=2525
+cache:
+  directories:
+    - .composer/cache
+before_script:
+- chmod -R 777 storage
+- composer self-update
+- composer install --prefer-source --no-interaction --dev
+script:
+- phpunit
+notifications:
+  slack: seizon:KydFG57VGayHcg2QT5SBIJO8
