@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Tests;
+
 class TestCase extends Laravel\Lumen\Testing\TestCase
 {
     /**
