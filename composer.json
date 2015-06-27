@@ -13,8 +13,7 @@
         "fzaninotto/faker": "~1.0",
         "squizlabs/php_codesniffer": "2.*",
         "phpmd/phpmd": "@stable",
-        "fabpot/php-cs-fixer": "^1.9",
-        "cdwv/php-static-analysis-hook": "dev-master"
+        "fabpot/php-cs-fixer": "^1.9"
     },
     "autoload": {
         "psr-4": {
