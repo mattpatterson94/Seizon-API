@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "90b9e1fa977f97f2f32f7d3bdf1f66ca",
+    "hash": "a83fabfec6fce34dcd79f2663002ebbd",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -3359,6 +3359,53 @@
             "time": "2015-06-21 13:59:46"
         },
         {
+            "name": "seizonio/laravel-php-code-analysis-hook",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seizonio/laravel-php-code-analysis-hook.git",
+                "reference": "df3c523d806813c6efc63c00de12e2f2d8bafbca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seizonio/laravel-php-code-analysis-hook/zipball/df3c523d806813c6efc63c00de12e2f2d8bafbca",
+                "reference": "df3c523d806813c6efc63c00de12e2f2d8bafbca",
+                "shasum": ""
+            },
+            "require": {
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "bin": [
+                "bin/symlink-git-hooks-to-hub",
+                "bin/git-hook-hub",
+                "bin/pre-commit"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Patterson",
+                    "email": "matt.patterson94@gmail.com",
+                    "homepage": "http://seizon.io"
+                }
+            ],
+            "description": "A GIT pre-commit hook for running php code sniffer, php mess detector and phpunit before a commit can be accepted.",
+            "homepage": "http://github.com/Seizonio/laravel-php-code-analysis-hook",
+            "keywords": [
+                "git",
+                "laravel",
+                "lumen",
+                "pre-commit-hook",
+                "static-analysis"
+            ],
+            "time": "2015-06-27 11:07:33"
+        },
+        {
             "name": "squizlabs/php_codesniffer",
             "version": "2.3.3",
             "source": {
@@ -3693,7 +3740,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "phpmd/phpmd": 0
+        "phpmd/phpmd": 0,
+        "seizonio/laravel-php-code-analysis-hook": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
