@@ -5,11 +5,11 @@ use Illuminate\Http\Request as Request;
 
 abstract class CRUDController extends Controller
 {
-    protected $service;
+    protected $repository;
 
-    public function __construct($service)
+    public function __construct($repository)
     {
-        $this->service = $service;
+        $this->repository = $repository;
     }
 
     /**
@@ -19,7 +19,7 @@ abstract class CRUDController extends Controller
      */
     public function index()
     {
-        return $this->service->all();
+        return $this->repository->all();
     }
 
     /**
@@ -29,7 +29,7 @@ abstract class CRUDController extends Controller
      */
     public function get($id = null)
     {
-        return $this->service->get($id);
+        return $this->repository->get($id);
     }
 
     /**
@@ -39,7 +39,7 @@ abstract class CRUDController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->service->create((array) $request->get('data'));
+        return $this->repository->create($request->all());
     }
 
     /**
@@ -50,7 +50,7 @@ abstract class CRUDController extends Controller
      */
     public function update($id, Request $request)
     {
-        return $this->service->update($id, (array) $request->all());
+        return $this->repository->update($id, $request->all());
     }
 
     /**
@@ -61,6 +61,6 @@ abstract class CRUDController extends Controller
      */
     public function destroy($id)
     {
-        return $this->service->destroy($id);
+        return $this->repository->destroy($id);
     }
 }
