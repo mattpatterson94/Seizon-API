@@ -10,7 +10,10 @@
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",
-        "fzaninotto/faker": "~1.0"
+        "fzaninotto/faker": "~1.0",
+        "squizlabs/php_codesniffer": "2.*",
+        "phpmd/phpmd": "@stable",
+        "fabpot/php-cs-fixer": "^1.9"
     },
     "autoload": {
         "psr-4": {
